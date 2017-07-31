@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 #include <unistd.h>
+
 int main(int argc,char* argv[])
 {
     if(argc < 2)
@@ -13,13 +14,11 @@ int main(int argc,char* argv[])
     }
     //修改当前进程的路径
     int ret = chdir(argv[1]);
-
     if(ret == -1)
     {
         perror("chdir");
         exit(1);
     }
-
     int fd = open("renchenglong.txt", O_CREAT | O_RDWR, 0777);
     if(fd == -1)
     {
