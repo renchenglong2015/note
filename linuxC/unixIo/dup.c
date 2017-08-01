@@ -5,7 +5,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-
+//I/O重定向，比如输入 ls > renchenglong.txt，当shell执行ls程序，将标准输出重定向到磁盘文件renchenglong.txt
 int main(){
     int fd = open("renchenglong.txt", O_CREAT | O_RDWR);
     if(fd == -1)
