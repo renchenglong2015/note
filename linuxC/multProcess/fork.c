@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+//父子进程共享 1.文件描述符（打开文件的结构体） 2.mmap建立的映射区（进程间通信共享）
 
 int main(int argc, char *argv[])
 {
