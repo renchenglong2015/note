@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
             }
         } while(n > 0);
         printf("回收完毕\n");
-        sleep(20);
+        while(1);
     }else{
         sleep(i);
         printf("我是第%d个孩子，pid = %d, gpid = %d\n", i+1, getpid(), getgid());
