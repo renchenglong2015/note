@@ -1,8 +1,5 @@
 <?php
-//选择排序法 算法复杂度为O(n^2);
-$data = range(0, 20);
-shuffle($data);
-
+include_once("./function.php");
 function selectionSort(&$data){
     $n = count($data);
     for($i = 0; $i < $n; $i++){
@@ -17,12 +14,3 @@ function selectionSort(&$data){
     }
 }
 
-function swap(&$a, &$b){
-    $c = $a;
-    $a = $b;
-    $b = $c;
-}
-
-selectionSort($data);
-
-var_dump($data);
