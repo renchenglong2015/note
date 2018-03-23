@@ -6,7 +6,7 @@ include_once("./Common.php");
  * 为什么要学习O(n^2)的排序算法
  * 基础：编码简单，易于实现，是一些简单场景的首选
  * 在一些特殊情况下，简单的排序方法更有效。
- * 简单的排序算法思想衍生出复杂的排序算法，
+ * 简单的排序算法思想衍生出复杂的排序算法。
  * 作为子过程，改进更复杂的算法。
  */
 
@@ -15,6 +15,7 @@ include_once("./Common.php");
  */
 function selectionSort(&$data)
 {
+
     $cnt = count($data);
     for ($i = 0; $i < $cnt; $i++) {
         //寻找区间[$i, $cnt)之间的最小值
@@ -28,8 +29,14 @@ function selectionSort(&$data)
     }
 }
 
-$data = range(1, 10);
+/**
+ * Did selectionSort in 0.00039792060852051 seconds
+ * Did selectionSort in 0.026356935501099 seconds
+ * Did selectionSort in 2.151398897171 seconds
+ */
+testSort("selectionSort");
+testSort("selectionSort", 1000);
+testSort("selectionSort", 10000);
 
-shuffle($data);
-selectionSort($data);
-var_dump($data);
+
+
