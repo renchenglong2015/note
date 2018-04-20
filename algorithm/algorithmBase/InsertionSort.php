@@ -1,6 +1,6 @@
 <?php
 
-include_once("./Common.php");
+include_once("../Common.php");
 
 /**
  * 插入排序，时间复杂度o(n^2)。是稳定的排序方法。
@@ -29,7 +29,7 @@ function insertionSort(&$data)
  */
 testSort("insertionSort");
 testSort("insertionSort", 1000);
-testSort("insertionSort", 10000);
+//testSort("insertionSort", 10000);
 
 /**
  * 优化后的插入排序算法，减少交换次数，插入排序可以提前终止内层循环，在近乎有序的集合中，时间复杂度接近O(n);
@@ -48,4 +48,4 @@ function insertionSort1(&$data)
 
 testSort("insertionSort1");
 testSort("insertionSort1", 1000);
-testSort("insertionSort1", 10000);
+testSort("insertionSort1", 100000);
