@@ -10,7 +10,7 @@
 #include "wrap.h"
 
 #define MAXLINE 8192
-#define SERV_PORT 8000
+#define SERV_PORT 8888
 #define OPEN_MAX 5000
 
 int main(int argc, char *argv[])
@@ -25,6 +25,17 @@ int main(int argc, char *argv[])
     /*
 	tep : epoll_ctl 参数
         ep  : epoll_wait 参数
+
+        struct epoll_event {
+	__uint32_t events; /* Epoll events */
+	epoll_data_t data; /* User data variable */
+	};
+	typedef union epoll_data {
+		void *ptr;
+		int fd;
+		uint32_t u32;
+		uint64_t u64;
+	} epoll_data_t;
     */
     struct epoll_event tep, ep[OPEN_MAX];
 

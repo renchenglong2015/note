@@ -9,7 +9,7 @@
 #include <fcntl.h>
 
 #define MAXLINE 10
-#define SERV_PORT 8000
+#define SERV_PORT 8888
 
 int main(void)
 {
@@ -37,7 +37,8 @@ int main(void)
 
     efd = epoll_create(10);
     /* ET 边沿触发 event 只有数据到来才会触发，不管缓存区中是否还有数据   EPOLLIN | EPOLLET
-       LT 水平触发(默认模式) 只要有数据就会触发                         EPOLLIN
+       LT 水平触发(默认模式) 只要有数据就会触发                           
+       区别是，LT模式下，只要一个句柄上的事件一次没有处理完，会在以后调用epoll_wait时次次返回这个句柄，而ET模式仅在第一次返回． 
        非阻塞IO 边沿触发 while(read()) fcntl(O_NONBLOCK)
     */
 
@@ -55,6 +56,7 @@ int main(void)
     event.data.fd = connfd;
     //将connfd加入监听红黑树
     epoll_ctl(efd, EPOLL_CTL_ADD, connfd, &event);    
+
     while (1) {
         printf("RCL epoll_wait begin\n");
         res = epoll_wait(efd, resevent, 10, -1);        //最多10个, 阻塞监听
