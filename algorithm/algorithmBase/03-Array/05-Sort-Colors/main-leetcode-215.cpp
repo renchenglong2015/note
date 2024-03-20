@@ -15,6 +15,23 @@ public:
     int findKthLargest(vector<int> &nums, int k){
 
     };
+
+private:
+    int _partition(vector<int> &arr, int l, int r)
+    {
+        //首个值
+        int v = arr[l];
+        int j = l; // arr[l+1...j] < v ; arr[j+1...i) > v
+        for (int i = l + 1; i <= r; i++)
+            if (arr[i] < v)
+            {
+                j++;
+                swap(arr[j], arr[i]);
+            }
+
+        swap(arr[l], arr[j]);
+        return j;
+    };
 };
 int main()
 {
